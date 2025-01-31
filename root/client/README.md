@@ -32,25 +32,19 @@ A modern web application for managing invoices built with React, TypeScript, and
 
 ### Installation
 
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-```
-
-2. Install dependencies:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Create a `.env` file in the root directory:
+2. Create a `.env` file in the root directory:
 
 ```bash
 VITE_BACKEND_URL="http://localhost:3000"
 ```
 
-4. Start the development server:
+3. Start the development server:
 
 ```bash
 npm run dev
