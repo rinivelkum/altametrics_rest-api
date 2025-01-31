@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Invoice {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  vendor_name String    @db.VarChar(255)
+  amount      Decimal   @db.Decimal(10, 2)
+  due_date    DateTime  @db.Date
+  description String?
+  user_id     String?   @db.Uuid
+  paid        Boolean?  @default(false)
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+  User        User?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([user_id], map: "invoice_user_id_idx")
+}
+
+model User {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email      String    @unique @db.VarChar(255)
+  password   String    @db.VarChar(255)
+  name       String    @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  deleted_at DateTime? @db.Timestamp(6)
+  Invoice    Invoice[]
+
+  @@index([email], map: "user_email_idx")
+}
