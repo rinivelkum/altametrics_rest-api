@@ -37,6 +37,8 @@ email:    user2@example.com
 password: password2
 ```
 
+Using the `/auth/login` route with your username and password will return a bearer token which you can use to access resources/
+
 # Running tests
 
 ## Unit tests
