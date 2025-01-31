@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# Invoice App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for managing invoices built with React, TypeScript, and Vite. This application provides a secure authentication system and features for viewing and managing invoices.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 Secure user authentication
+- 📊 Invoice dashboard
+- 🔍 Detailed invoice view modal
+- 🎨 Modern UI with Tailwind CSS
+- 🚀 Fast development with Vite
+- ✨ Type-safe with TypeScript
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [React](https://reactjs.org/) - UI Library
+- [TypeScript](https://www.typescriptlang.org/) - Language
+- [Vite](https://vitejs.dev/) - Build Tool
+- [TanStack Query](https://tanstack.com/query) - Data Fetching
+- [Redux Toolkit](https://redux-toolkit.js.org/) - State Management
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI Components
+- [Zod](https://zod.dev/) - Schema Validation
+- [Axios](https://axios-http.com/) - HTTP Client
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js 18 or higher
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+npm install
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+3. Create a `.env` file in the root directory:
+
+```bash
+VITE_BACKEND_URL="http://localhost:3000"
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+## Available scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+## Project Structure
+
+```
+src/
+├── components/     # React components
+├── providers/      # Context providers
+├── services/      # API services
+├── slices/        # Redux slices
+├── types/         # TypeScript types
+├── lib/           # Utilities and configurations
+├── App.tsx        # Root component
+└── main.tsx       # Entry point
 ```
